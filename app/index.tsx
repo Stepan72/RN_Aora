@@ -7,8 +7,7 @@ export default function App() {
     <View className="flex-1 justify-center items-center">
       <StatusBar style="auto" />
       <Text className="text-3xl font-pblack">Aora!</Text>
-      <Link href="/profile">Go to Profile</Link>
-      <StatusBar style="auto" />
+      <Link href="/home">Go to Home</Link>
     </View>
   );
 }
