@@ -1,4 +1,4 @@
-import { ImageSourcePropType } from "react-native";
+import { ImageSourcePropType, TextInputProps } from "react-native";
 
 export interface TabIconProps {
   icon: ImageSourcePropType;
@@ -14,3 +14,9 @@ export interface CustomButtonProps {
   textStyles?: string;
   isLoading?: boolean;
 }
+
+export type FormFieldProps = TextInputProps & {
+  title: string;
+  handleChangeText: (e: string) => void;
+  otherStyles?: string;
+};
