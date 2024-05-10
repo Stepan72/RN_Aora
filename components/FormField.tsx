@@ -2,7 +2,6 @@ import {
   View,
   Text,
   TextInput,
-  TextInputProps,
   TouchableOpacity,
   Image,
   KeyboardAvoidingView,
