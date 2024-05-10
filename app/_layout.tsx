@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Stack, SplashScreen } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
+import GlobalProvider from "../context/globalProvider";
 
 const RootLayout = () => {
   SplashScreen.preventAutoHideAsync();
@@ -31,7 +32,7 @@ const RootLayout = () => {
   }
 
   return (
-    <>
+    <GlobalProvider>
       <StatusBar style="light" />
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -39,7 +40,7 @@ const RootLayout = () => {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         {/* <Stack.Screen name="/search/[query]" options={{ headerShown: false }} /> */}
       </Stack>
-    </>
+    </GlobalProvider>
   );
 };
 
