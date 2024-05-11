@@ -20,3 +20,12 @@ export type FormFieldProps = TextInputProps & {
   handleChangeText: (e: string) => void;
   otherStyles?: string;
 };
+
+export interface TrendingProps {
+  posts: [];
+}
+
+export interface EmptyStateProps {
+  title: string;
+  subtitle: string;
+}
