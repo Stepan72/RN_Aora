@@ -22,10 +22,26 @@ export type FormFieldProps = TextInputProps & {
 };
 
 export interface TrendingProps {
-  posts: [];
+  posts: VideoCardProps[];
 }
 
 export interface EmptyStateProps {
   title: string;
   subtitle: string;
+}
+
+export interface VideoCardProps {
+  $id: string;
+  title: string;
+  thumbnail: string;
+  prompt: string;
+  video: string;
+  creator: CreatorProps;
+}
+
+export interface CreatorProps {
+  accountId: string;
+  avatar: string;
+  email: string;
+  username: string;
 }
