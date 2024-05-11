@@ -21,6 +21,11 @@ export type FormFieldProps = TextInputProps & {
   otherStyles?: string;
 };
 
+export type SearchInputProps = TextInputProps & {
+  handleChangeText: (e: string) => void;
+  otherStyles?: string;
+};
+
 export interface TrendingProps {
   posts: VideoCardProps[];
 }
@@ -44,4 +49,8 @@ export interface CreatorProps {
   avatar: string;
   email: string;
   username: string;
+}
+
+export interface TrendingItemProps extends VideoCardProps {
+  activeItemId: string;
 }

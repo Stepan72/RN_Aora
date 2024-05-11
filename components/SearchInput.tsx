@@ -9,18 +9,17 @@ import {
   Platform,
 } from "react-native";
 import React, { useState } from "react";
-import { FormFieldProps } from "../types";
+import { SearchInputProps } from "../types";
 import { icons } from "../constants";
 
 const SearchInput = ({
-  title,
   value,
   handleChangeText,
   otherStyles,
   keyboardType,
   placeholder,
   ...props
-}: FormFieldProps) => {
+}: SearchInputProps) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -31,7 +30,6 @@ const SearchInput = ({
         placeholder={"Search for a video topic"}
         placeholderTextColor="#7b7b8b"
         onChangeText={handleChangeText}
-        secureTextEntry={title === "Password" && !showPassword}
       />
       <TouchableOpacity>
         <Image source={icons.search} className="w-5 h-5" resizeMode="contain" />
