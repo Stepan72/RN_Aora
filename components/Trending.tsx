@@ -9,7 +9,7 @@ import {
   ViewStyle,
   ImageStyle,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { TrendingProps, TrendingItemProps } from "../types";
 import * as Animatable from "react-native-animatable";
 import { icons } from "../constants";
@@ -42,7 +42,10 @@ const TrendingItem = ({
   activeItemId,
   $id,
 }: TrendingItemProps) => {
-  const video = "https://youtube.com/shorts/Nfssn54KBLU?si=6qkCti0d1lLfv_CB";
+  const videoComponent = useRef(null);
+
+  const video =
+    "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/vertical-videos/2.mp4";
   const [play, setPlay] = useState(false);
 
   return (
@@ -53,8 +56,9 @@ const TrendingItem = ({
     >
       {play ? (
         <Video
+          ref={videoComponent}
           source={{ uri: video }}
-          className="w-52 h-72 rounded-[35px] mt-3"
+          className="w-52 h-72 rounded-[35px] mt-3 bg"
           resizeMode={ResizeMode.CONTAIN}
           useNativeControls
           shouldPlay
@@ -72,7 +76,7 @@ const TrendingItem = ({
         >
           <ImageBackground
             source={{ uri: thumbnail }}
-            className="w-52 h-72 rounded-[35px] my-5 overflow-hidden shadow-lg shadow-black/40"
+            className="w-52 h-72 rounded-[35px] my-5 overflow-hidden shadow-lg shadow-black/40 bg-slate-400"
             resizeMode="cover"
           />
           <Image
