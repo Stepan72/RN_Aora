@@ -37,11 +37,12 @@ const TrendingItem = ({
   title,
   thumbnail,
   prompt,
-  video,
+  //   video,
   creator,
   activeItemId,
   $id,
 }: TrendingItemProps) => {
+  const video = "https://rutube.ru/video/75aa0eda76d3f0b6e778a2aced278a51/";
   const [play, setPlay] = useState(false);
 
   return (
@@ -71,7 +72,7 @@ const TrendingItem = ({
         >
           <ImageBackground
             source={{ uri: thumbnail }}
-            className="w-52 h-72 rounded-[35px] my-5 overflow-hidden shadow-lg shadow-black/40 bg-slate-200"
+            className="w-52 h-72 rounded-[35px] my-5 overflow-hidden shadow-lg shadow-black/40"
             resizeMode="cover"
           />
           <Image

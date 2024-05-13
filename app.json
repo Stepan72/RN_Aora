@@ -14,8 +14,7 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true,
-      "package": "com.stepan72.aora"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
