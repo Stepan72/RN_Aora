@@ -13,7 +13,7 @@ import React, { useState } from "react";
 import { TrendingProps, TrendingItemProps } from "../types";
 import * as Animatable from "react-native-animatable";
 import { icons } from "../constants";
-import { Video, ResizeMode } from "expo-av";
+import { ResizeMode, Video } from "expo-av";
 
 const zoomIn = {
   0: {
@@ -42,7 +42,7 @@ const TrendingItem = ({
   activeItemId,
   $id,
 }: TrendingItemProps) => {
-  const video = "https://rutube.ru/video/75aa0eda76d3f0b6e778a2aced278a51/";
+  const video = "https://youtube.com/shorts/Nfssn54KBLU?si=6qkCti0d1lLfv_CB";
   const [play, setPlay] = useState(false);
 
   return (
@@ -59,7 +59,7 @@ const TrendingItem = ({
           useNativeControls
           shouldPlay
           onPlaybackStatusUpdate={(status) => {
-            if (status.isLoaded) {
+            if ("didJustFinish" in status && status.didJustFinish) {
               setPlay(false);
             }
           }}
