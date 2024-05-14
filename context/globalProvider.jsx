@@ -13,8 +13,8 @@ const GlobalContext = createContext({
   isLoading: true,
   isLoggedIn: false,
   user: null,
-  setIsLoggedIn: () => {},
-  setUser: () => {},
+  setIsLoggedIn: (boolean) => {},
+  setUser: ({}) => {},
 });
 
 export const useGlobalContext = () => useContext(GlobalContext);
@@ -30,7 +30,7 @@ const GlobalProvider = ({ children }) => {
         if (res) {
           setIsLoggedIn(true);
           setUser(res);
-          console.log("user got from server", res);
+          console.log("User got from server", res);
         } else {
           setIsLoggedIn(false);
           setUser(null);

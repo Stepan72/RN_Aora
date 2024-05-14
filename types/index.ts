@@ -21,9 +21,8 @@ export type FormFieldProps = TextInputProps & {
   otherStyles?: string;
 };
 
-export type SearchInputProps = TextInputProps & {
-  handleChangeText: (e: string) => void;
-  otherStyles?: string;
+export type SearchInputProps = {
+  initialQuery?: string | string[];
 };
 
 export interface TrendingProps {
