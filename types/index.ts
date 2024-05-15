@@ -53,3 +53,21 @@ export interface CreatorProps {
 export interface TrendingItemProps extends VideoCardProps {
   activeItemId: string;
 }
+
+export interface UserProps {
+  $collectionId: string;
+  $createdAt: Date;
+  $databaseId: string;
+  $id: string;
+  accountId: string;
+  avatar: string;
+  email: string;
+  username: string;
+}
+
+export interface InfoBoxProps {
+  title: string;
+  subtitle?: string;
+  containerStyles?: string;
+  titleStyles?: string;
+}
