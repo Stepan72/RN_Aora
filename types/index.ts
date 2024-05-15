@@ -1,4 +1,5 @@
 import { ImageSourcePropType, TextInputProps } from "react-native";
+import React, { Dispatch, SetStateAction } from "react";
 
 export interface TabIconProps {
   icon: ImageSourcePropType;
@@ -66,8 +67,20 @@ export interface UserProps {
 }
 
 export interface InfoBoxProps {
-  title: string;
+  title?: string;
   subtitle?: string;
   containerStyles?: string;
   titleStyles?: string;
+}
+
+export interface GlobalContextProps {
+  isLoading: boolean;
+  isLoggedIn: boolean;
+  user: UserProps | null;
+  setIsLoggedIn: Dispatch<SetStateAction<boolean>>;
+  setUser: Dispatch<SetStateAction<UserProps | null>>;
+}
+
+export interface GlobalProviderProps {
+  children: React.ReactNode;
 }

@@ -7,14 +7,13 @@ import { VideoCardProps } from "../../types";
 import VideoCard from "../../components/VideoCard";
 import EmptyState from "../../components/EmptyState";
 import { useGlobalContext } from "../../context/globalProvider";
-import { UserProps } from "../../types";
 import { icons } from "../../constants";
 import InfoBox from "../../components/InfoBox";
 import { router } from "expo-router";
 
 const Profile = () => {
   const { user, setIsLoggedIn, setUser } = useGlobalContext();
-  const { data: posts } = useAppwrite(() => getUserPosts(user.$id));
+  const { data: posts } = useAppwrite(() => getUserPosts(user?.$id));
 
   const logoutHandler = async () => {
     await signOut();
@@ -56,7 +55,7 @@ const Profile = () => {
             />
             <View className="mt-5 flex-row">
               <InfoBox
-                title={posts.length.toString() || 0}
+                title={posts.length.toString() || "0"}
                 subtitle="Posts"
                 containerStyles="mr-10"
                 titleStyles="text-xl"

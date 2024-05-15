@@ -1,27 +1,20 @@
-import React, {
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-  ReactNode,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import { getCurrentUser } from "../lib/appwrite";
+import { GlobalContextProps, GlobalProviderProps, UserProps } from "../types";
 
-const GlobalContext = createContext({
+const GlobalContext = createContext<GlobalContextProps>({
   isLoading: true,
   isLoggedIn: false,
   user: null,
-  setIsLoggedIn: (boolean) => {},
-  setUser: ({}) => {},
+  setIsLoggedIn: () => {},
+  setUser: () => {},
 });
 
 export const useGlobalContext = () => useContext(GlobalContext);
 
-const GlobalProvider = ({ children }) => {
+const GlobalProvider = ({ children }: GlobalProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<UserProps | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

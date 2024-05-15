@@ -12,7 +12,7 @@ import { VideoCardProps } from "../../types";
 import { useGlobalContext } from "../../context/globalProvider";
 
 const Home = () => {
-  const { user, setIsLoggedIn, setUser } = useGlobalContext();
+  const { user } = useGlobalContext();
   const [refreshing, setRefreshing] = useState(false);
 
   const { data: posts, refetch } = useAppwrite(getAllPosts);
