@@ -15,5 +15,3 @@ const AuthLayout = () => {
 };
 
 export default AuthLayout;
-
-/// 1:09:36
