@@ -38,7 +38,7 @@ const SearchInput = ({ initialQuery }: SearchInputProps) => {
           if (pathname.startsWith("/search") && typeof query === "string") {
             router.setParams({ query });
           } else {
-            router.navigate(`/search/${query}`);
+            router.navigate(`search/${query}`);
           }
         }}
       >
