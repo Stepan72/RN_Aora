@@ -25,6 +25,7 @@ export type FormFieldProps = TextInputProps & {
 
 export type SearchInputProps = {
   initialQuery?: string | string[];
+  placeholder?: string;
 };
 
 export interface TrendingProps {
@@ -34,6 +35,8 @@ export interface TrendingProps {
 export interface EmptyStateProps {
   title: string;
   subtitle: string;
+  customButtonTitle?: string;
+  customButtonHandler?: () => void;
 }
 
 export interface VideoCardProps {
