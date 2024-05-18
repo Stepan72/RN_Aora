@@ -37,15 +37,13 @@ const TrendingItem = ({
   title,
   thumbnail,
   prompt,
-  //   video,
+  video,
   creator,
   activeItemId,
   $id,
 }: TrendingItemProps) => {
   const videoComponent = useRef(null);
 
-  const video =
-    "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/vertical-videos/2.mp4";
   const [play, setPlay] = useState(false);
 
   return (
@@ -58,7 +56,7 @@ const TrendingItem = ({
         <Video
           ref={videoComponent}
           source={{ uri: video }}
-          className="w-52 h-72 rounded-[35px] mt-3 bg-white/10"
+          className="w-52 h-72 rounded-[35px] mt-3"
           resizeMode={ResizeMode.CONTAIN}
           useNativeControls
           shouldPlay
@@ -76,7 +74,7 @@ const TrendingItem = ({
         >
           <ImageBackground
             source={{ uri: thumbnail }}
-            className="w-52 h-72 rounded-[35px] my-5 overflow-hidden shadow-lg shadow-black/40 bg-slate-400"
+            className="w-52 h-72 rounded-[35px] my-5 overflow-hidden shadow-lg shadow-black/40"
             resizeMode="cover"
           />
           <Image
@@ -104,7 +102,7 @@ const Trending = ({ posts }: TrendingProps) => {
         }
       }}
       viewabilityConfig={{ itemVisiblePercentThreshold: 70 }}
-      contentOffset={{ x: 170, y: 0 }}
+      contentOffset={{ x: 380, y: 0 }}
       renderItem={({ item }) => (
         <TrendingItem activeItemId={activeItemId} {...item} />
       )}

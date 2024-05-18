@@ -1,6 +1,6 @@
 import { ImageSourcePropType, TextInputProps } from "react-native";
 import React, { Dispatch, SetStateAction } from "react";
-import { DocumentPickerAsset } from "expo-document-picker";
+import { ImagePickerAsset } from "expo-image-picker";
 
 export interface TabIconProps {
   icon: ImageSourcePropType;
@@ -88,7 +88,7 @@ export interface GlobalProviderProps {
 
 export interface CreateFormStateProps {
   title: string;
-  video: DocumentPickerAsset | null;
-  thumbnail: DocumentPickerAsset | null;
+  video: ImagePickerAsset | null;
+  thumbnail: ImagePickerAsset | null;
   prompt: string;
 }

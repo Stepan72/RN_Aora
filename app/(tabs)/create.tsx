@@ -14,6 +14,7 @@ import { Video, ResizeMode } from "expo-av";
 import { icons } from "../../constants";
 import CustomButton from "../../components/CustomButton";
 import * as DocumentPicker from "expo-document-picker";
+import * as ImagePicker from "expo-image-picker";
 import { CreateFormStateProps } from "../../types";
 import { router } from "expo-router";
 import { createVideo } from "../../lib/appwrite";
@@ -30,11 +31,13 @@ const Create = () => {
   });
 
   const openPicker = async (selectType: "image" | "video") => {
-    const result = await DocumentPicker.getDocumentAsync({
-      type:
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes:
         selectType === "image"
-          ? ["image/png", "image/jpg", "image/jpeg"]
-          : ["video/mp4", "video/gif"],
+          ? ImagePicker.MediaTypeOptions.Images
+          : ImagePicker.MediaTypeOptions.Videos,
+      aspect: [4, 3],
+      quality: 1,
     });
 
     if (!result.canceled) {
@@ -149,5 +152,3 @@ const Create = () => {
 };
 
 export default Create;
-
-/// 3:53

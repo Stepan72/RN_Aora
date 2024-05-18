@@ -1,5 +1,11 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
+import React, { useRef, useState } from "react";
 import { VideoCardProps } from "../types";
 import { icons } from "../constants";
 import { ResizeMode, Video } from "expo-av";
@@ -11,6 +17,7 @@ const VideoCard = ({
   video,
   creator: { username, avatar },
 }: VideoCardProps) => {
+  const videoComponent = useRef(null);
   const [play, setPlay] = useState(false);
 
   return (
@@ -45,26 +52,27 @@ const VideoCard = ({
       </View>
       {play ? (
         <Video
+          ref={videoComponent}
           source={{ uri: video }}
           className="w-full h-60 rounded-xl mt-3"
           resizeMode={ResizeMode.CONTAIN}
           useNativeControls
           shouldPlay
           onPlaybackStatusUpdate={(status) => {
-            if (status.isLoaded) {
+            if ("didJustFinish" in status && status.didJustFinish) {
               setPlay(false);
             }
           }}
         />
       ) : (
         <TouchableOpacity
-          className="w-full h-60 rounded-xl mt-3 relative justify-center items-center"
+          className="w-full h-60 rounded-2xl mt-3 relative justify-center items-center"
           activeOpacity={0.7}
           onPress={() => setPlay(true)}
         >
           <Image
-            source={{ uri: avatar }}
-            className="w-gull h-full rounded-xl mt-3"
+            source={{ uri: thumbnail }}
+            className="w-full h-full rounded-2xl mt-3"
             resizeMode="cover"
           />
           <Image
@@ -79,5 +87,3 @@ const VideoCard = ({
 };
 
 export default VideoCard;
-
-/// 2:41:58
